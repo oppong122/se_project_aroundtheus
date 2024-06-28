@@ -26,4 +26,6 @@ In this project, i needed to create 3 different resolutions with a specified dim
 
 By using figma, i started with a destop screen and i narrowed my way down to phone screens by the use of @media property.
 
-i also recorded a video showing various properties used
+i also recorded a video showing various properties used.
+
+video link https://share.icloud.com/photos/0fd8Yc0aNtV49eUKMCYrqL9SQ
