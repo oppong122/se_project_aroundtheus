@@ -1,5 +1,4 @@
 .cards {
-  /*fonts*/
   margin-top: 51px;
 }
 
@@ -52,6 +51,8 @@
   white-space: nowrap;
   overflow: hidden;
   width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .card__like-button {
@@ -59,4 +60,9 @@
   width: 21px;
   height: 18px;
   border: none;
+}
+
+.card__like-button {
+  transition: 0.3s;
+  cursor: pointer;
 }
