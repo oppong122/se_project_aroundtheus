@@ -1,0 +1,125 @@
+@media screen and (max-width: 879px) {
+  .header {
+    max-width: 599px;
+    padding-left: 19px;
+  }
+  .profile {
+    max-width: 599px;
+    display: flex;
+    margin: 40px auto;
+    align-items: center;
+  }
+
+  .profile__description {
+    font-family: Inter;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: left;
+    margin-left: 0;
+    margin-top: 14px;
+  }
+
+  .profile__title {
+    font-weight: 500;
+    font-size: 1.5em;
+    margin: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .profile__add-button {
+    margin-right: 0;
+  }
+
+  .profile__edit-button {
+    padding: 0;
+    margin-left: 10px;
+    width: 18px;
+    height: 18px;
+    border: 1px solid white;
+  }
+
+  .footer__content {
+    margin: 0 auto;
+    max-width: 599px;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .page {
+    padding: 19px;
+  }
+  .header {
+    padding: 0 0 32px 0;
+  }
+
+  .profile {
+    flex-direction: column;
+    align-items: center;
+    max-width: 282px;
+    margin-bottom: 0;
+  }
+
+  .profile__image {
+    margin: 42px 0 30px;
+  }
+
+  .profile__title {
+    width: 196px;
+    height: 22px;
+    align-items: center;
+    font-family: Inter;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 26.63px;
+    text-align: center;
+  }
+
+  .profile__info {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .profile__description {
+    margin-top: 14px;
+    max-width: 282px;
+    height: 14px;
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.94px;
+    text-align: center;
+  }
+
+  .profile__edit-button {
+    margin-left: 10px;
+    padding: 0;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #fff;
+    padding: 0;
+    box-sizing: border-box;
+    width: 18px;
+    height: 18px;
+  }
+
+  .profile__add-button {
+    width: 100%;
+    margin: 36px;
+  }
+
+  .card__list {
+    margin-bottom: 48px;
+  }
+
+  .footer {
+    max-width: 282px;
+    height: 14px;
+    margin: 0 auto;
+  }
+
+  .footer__content {
+    text-align: left;
+  }
+}

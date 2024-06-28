@@ -1,0 +1,10 @@
+.header {
+  margin: 45px auto 40px auto;
+  max-width: 880px;
+  padding-bottom: 36px;
+  border-bottom: 1px solid gray;
+}
+
+.header__image {
+  margin: 0;
+}
