@@ -5,9 +5,10 @@
 
 .footer__content {
   font-family: Inter, Arial, Helvetica, sans-serif;
-  color: gray;
+  color: #545454;
   font-size: 18px;
   font-weight: 400;
   line-height: 22px;
   text-align: left;
+  margin: 0;
 }
