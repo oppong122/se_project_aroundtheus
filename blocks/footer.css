@@ -12,3 +12,19 @@
   text-align: left;
   margin: 0;
 }
+
+@media screen and (max-width: 775px) {
+  .footer__content {
+    margin: 0 auto;
+    max-width: 599px;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .footer {
+    max-width: 282px;
+    max-height: 14px;
+    margin: 0 auto;
+    margin-bottom: 36px;
+  }
+}

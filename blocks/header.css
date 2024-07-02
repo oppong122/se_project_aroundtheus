@@ -10,3 +10,17 @@
   height: 33px;
   margin: 0;
 }
+
+@media screen and (max-width: 775px) {
+  .header {
+    max-width: 599px;
+    padding-left: 19px;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .header {
+    padding: 0 0 32px 0;
+    margin-bottom: 0;
+  }
+}

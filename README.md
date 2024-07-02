@@ -29,3 +29,5 @@ By using figma, i started with a destop screen and i narrowed my way down to pho
 i also recorded a video showing various properties used.
 
 video link https://share.icloud.com/photos/0fd8Yc0aNtV49eUKMCYrqL9SQ
+
+git@github.com:oppong122/se_project_aroundtheus.git
