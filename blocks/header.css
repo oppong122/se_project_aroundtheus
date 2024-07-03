@@ -2,7 +2,7 @@
   margin: 45px auto 40px auto;
   max-width: 880px;
   padding-bottom: 36px;
-  border-bottom: 1px solid rgba(84, 84, 84, 1);
+  border-bottom: 1px solid rgba(84, 84, 84, 0.7);
 }
 
 .header__image {
@@ -14,7 +14,7 @@
 @media screen and (max-width: 775px) {
   .header {
     max-width: 599px;
-    padding-left: 19px;
+    padding-bottom: 19px;
   }
 }
 
@@ -22,5 +22,11 @@
   .header {
     padding: 0 0 32px 0;
     margin-bottom: 0;
+  }
+
+  .header__image {
+    width: 126px;
+    height: 24;
+    padding-left: 27px;
   }
 }

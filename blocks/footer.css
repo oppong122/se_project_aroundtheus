@@ -23,8 +23,11 @@
 @media screen and (max-width: 580px) {
   .footer {
     max-width: 282px;
-    max-height: 14px;
-    margin: 0 auto;
-    margin-bottom: 36px;
+    margin: 0 auto 36px;
+  }
+
+  .footer__content {
+    line-height: 17px;
+    font-size: 14px;
   }
 }

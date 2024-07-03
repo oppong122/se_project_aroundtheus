@@ -16,4 +16,7 @@
   .cards {
     margin-top: 36px;
   }
+  .cards__list {
+    margin-bottom: 48px;
+  }
 }

@@ -31,3 +31,5 @@ i also recorded a video showing various properties used.
 video link https://share.icloud.com/photos/0fd8Yc0aNtV49eUKMCYrqL9SQ
 
 git@github.com:oppong122/se_project_aroundtheus.git
+
+URL: https://oppong122.github.io/se_project_aroundtheus/
