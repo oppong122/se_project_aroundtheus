@@ -1,32 +1,32 @@
-const initialCards=[
+const initialCards = [
 
 {
-    Title : 'Yosemite Valley',
+    name : 'Yosemite Valley',
     link : 'https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg'
 },
 
 {
-    Title : 'Lake Louise',
+    name : 'Lake Louise',
     link : 'https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg'
 },
 
 {
-    Title : 'Bald Mountains',
+    name : 'Bald Mountains',
     link : 'https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg'
 },
 
 {
-    Title : 'Latemar',
+    name : 'Latemar',
     link : 'https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg'
 },
 
 {
-    Title : 'Vanoise National Park',
+    name : 'Vanoise National Park',
     link : 'https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg'
 },
 
 {
-    Title : 'YLago di Braies',
+    name : 'YLago di Braies',
     link : 'https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg'
 }
 
