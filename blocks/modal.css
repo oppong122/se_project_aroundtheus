@@ -1,0 +1,120 @@
+.modal {
+  padding: 19px;
+  display: flex;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  visibility: hidden;
+}
+
+.modal_open {
+  visibility: visible;
+}
+
+.modal__container {
+  position: relative;
+  width: 430px;
+  border-radius: 10px;
+  margin: auto;
+  background-color: #ffff;
+}
+
+.modal__close {
+  background-image: url(../images/Close\ Icon.svg);
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-size: contain;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border: none;
+  position: absolute;
+  bottom: calc(100% + 5px);
+  left: calc(100% + 5px);
+}
+
+.modal__heading {
+  color: #000;
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 29px;
+  text-align: left;
+  margin-top: 34px;
+  max-width: 330px;
+  margin-bottom: 0;
+  padding: 0 0 0 36px;
+}
+
+.modal__form {
+  max-width: 358px;
+  padding: 0 36px 0 36px;
+  display: grid;
+}
+
+.modal__button {
+  background-color: #000;
+  color: #ffff;
+  margin-bottom: 37px;
+  margin-top: 48px;
+  height: 50px;
+  padding: 0;
+  border: 0;
+  border-radius: 2px;
+}
+
+.modal__form-title {
+  height: 27px;
+  margin-top: 54px;
+  border: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 0;
+}
+
+.modal__form-description {
+  height: 27px;
+  margin-top: 30px;
+  border: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 0;
+}
+
+@media screen and (max-width: 580px) {
+  .modal__container {
+    max-width: 282px;
+    padding: 0 22px 0 22px;
+  }
+
+  .modal__heading {
+    max-width: 238px;
+    line-height: 22px;
+    font-size: 18px;
+    padding: 0;
+    margin-top: 25px;
+  }
+
+  .modal__form {
+    padding: 0;
+    margin-bottom: 25px;
+  }
+
+  .modal__close {
+    width: 26px;
+    height: 26px;
+    top: -39px;
+    left: 87%;
+  }
+
+  .modal__form-title {
+    margin-top: 75px;
+  }
+
+  .modal__button {
+    margin-bottom: 0;
+    line-height: 46px;
+  }
+}
