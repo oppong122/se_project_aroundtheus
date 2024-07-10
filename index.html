@@ -24,9 +24,15 @@
             alt="Avatar"
           />
           <div class="profile__info">
-            <h1 class="profile__title">Jacques Cousteau</h1>
-            <button class="profile__edit-button"  id="profile-edit-button" type="button"></button>
-            <p class="profile__description">Explorer</p>
+            <h1 class="profile__title" id="profile-title">Jacques Cousteau</h1>
+            <button
+              class="profile__edit-button"
+              id="profile-edit-button"
+              type="button"
+            ></button>
+            <p class="profile__description" id="profile-description">
+              Explorer
+            </p>
           </div>
           <button class="profile__add-button" type="button"></button>
         </section>
@@ -106,7 +112,7 @@
         <p class="footer__content">&#169; 2022 Around The U.S</p>
       </footer>
     </div>
-    <div class="modal" id="profile-edit-modal" >
+    <div class="modal" id="profile-edit-modal">
       <div class="modal__container">
         <button class="modal__close" id="profile-close-button"></button>
         <p class="modal__heading">Edit Profile</p>
@@ -115,13 +121,15 @@
             class="modal__form-title"
             type="text"
             name="profile__title"
-            placeholder="Jacques Cousteau"
+            id="profile-title-input"
+            placeholder="Name"
           />
           <input
             class="modal__form-description"
             type="text"
             name="profile__description"
-            placeholder="Explorer"
+            id="profile-description-input"
+            placeholder="Description"
           />
           <button class="modal__button">Save</button>
         </form>
