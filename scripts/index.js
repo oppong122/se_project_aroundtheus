@@ -53,7 +53,7 @@ function getCardElement(cardData) {
 
   const cardImageEl = cardElement.querySelector(".card__image");
 
-  const cardTitleEl = cardElement.querySelector(".card__title");
+  const cardTitleEl = cardElement.querySelector(".card__description");
 
   cardImageEl.src = cardData.link;
 
@@ -71,8 +71,8 @@ function handleProfileEditSubmit(e) {
 }
 
 profileEditButton.addEventListener("click", () => {
-  profileDescriptionInput.value = profileDescription.textContent;
-  profileTitleInput.value = profileTitle.textContent;
+  profileDescriptionInput.value = profileDescription.textContent.trim();
+  profileTitleInput.value = profileTitle.textContent.trim();
   profileEditModal.classList.add("modal_open");
 });
 
