@@ -51,7 +51,7 @@ const previewImage = document.querySelector(".modal__image-view");
 const previewImageCaption = document.querySelector(".modal__image-title");
 const profileTitle = document.querySelector("#profile-title");
 const profileDescription = document.querySelector("#profile-description");
-const profileTitleInput = document.querySelector("#modal-input-type-url");
+const profileTitleInput = document.querySelector("#profile-title-input");
 const profileDescriptionInput = document.querySelector(
   "#profile-description-input"
 );
@@ -73,11 +73,11 @@ function renderedCard(cardData, cardListEl) {
   cardListEl.prepend(cardElement);
 }
 
-function handleProfileEditSubmit(e) {
-  e.preventDefault();
+function handleProfileEditSubmit(evt) {
+  evt.preventDefault();
   profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
-  closePopop(addCardModal);
+  closePopop(profileEditModal);
 }
 
 function handleAddCardFormSubmit(e) {
