@@ -11,6 +11,28 @@
   visibility: hidden;
 }
 
+.modal_image-preview {
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.modal__image-content {
+  position: relative;
+  border-radius: 10px;
+  margin: auto;
+  background-color: transparent;
+  max-height: 75vh;
+  max-width: 75vw;
+}
+
+.modal__image-view {
+  display: block;
+}
+
 .modal_open {
   visibility: visible;
 }
@@ -86,6 +108,12 @@
 @media screen and (max-width: 580px) {
   .modal__container {
     max-width: 282px;
+    padding: 0 22px 0 22px;
+  }
+
+  .modal__image-view {
+    width: 240px;
+    height: 299px;
     padding: 0 22px 0 22px;
   }
 

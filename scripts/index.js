@@ -30,20 +30,25 @@ const initialCards = [
   },
 ];
 
+const imagePreviewModal = document.querySelector("#image-preview");
+
 const addCardModal = document.querySelector("#add-card-modal");
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
 const addNewCardButton = document.querySelector(".profile__add-button");
 
+const imagePreviewCloseModal = imagePreviewModal.querySelector(".modal__close");
 const profileEditFormElement = profileEditModal.querySelector(".modal__form");
 const addCardFormEelement = addCardModal.querySelector(".modal__form");
 const profileModalCloseButton = profileEditModal.querySelector(".modal__close");
-
 const addModalCloseButton = addCardModal.querySelector(".modal__close");
 const cardTitleInput = addCardFormEelement.querySelector(
   "#modal-input-type-title"
 );
 const cardUrlInput = addCardFormEelement.querySelector("#modal-input-type-url");
+
+const previewImage = document.querySelector(".modal__image-view");
+const previewImageCaption = document.querySelector(".modal__image-title");
 const profileTitle = document.querySelector("#profile-title");
 const profileDescription = document.querySelector("#profile-description");
 const profileTitleInput = document.querySelector("#modal-input-type-url");
@@ -89,6 +94,9 @@ profileEditButton.addEventListener("click", () => {
   modalOpen(profileEditModal);
 });
 
+imagePreviewCloseModal.addEventListener("click", () =>
+  closePopop(imagePreviewModal)
+);
 profileModalCloseButton.addEventListener("click", () =>
   closePopop(profileEditModal)
 );
@@ -103,12 +111,19 @@ function getCardElement(cardData) {
   const likeButton = cardElement.querySelector(".card__like-button");
   const deleteButton = cardElement.querySelector(".card__delete-button");
 
+  cardImageEl.addEventListener("click", () => {
+    previewImage.src = cardData.link;
+    previewImage.alt = cardData.name;
+    previewImageCaption.textContent = cardData.name;
+    modalOpen(imagePreviewModal);
+  });
+
   likeButton.addEventListener("click", () => {
     likeButton.classList.toggle("card__like-button_active");
   });
 
   deleteButton.addEventListener("click", () => {
-    deleteButton.classList.remove(".card__image");
+    cardElement.remove();
   });
 
   cardImageEl.src = cardData.link;
