@@ -81,10 +81,10 @@ function handleProfileEditSubmit(evt) {
 
 function handleAddCardFormSubmit(e) {
   e.preventDefault();
-  e.target.reset();
   const name = cardTitleInput.value;
   const link = cardUrlInput.value;
   renderedCard({ link, name }, cardListEl);
+  e.target.reset();
   closePopup(addCardModal);
 }
 
