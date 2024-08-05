@@ -18,20 +18,10 @@ function checkInputValidity(formEl, inputEl, options) {
   }
   hideInputError(formEl, inputEl, options);
 }
-//using .every
+
 function hasInvalidInput(inputList) {
   return !inputList.every((inputEl) => inputEl.validity.valid);
 }
-
-/*function disabledButton() {
-  submitButton.classList.add(inactiveButtonClass);
-  return (submitButton.disabled = true);
-}
-
-function anableButton() {
-    submitButton.classList.remove(inactiveButtonClass);
-    return (submitButton.disabled = false);
-}*/
 
 function toggleButtonState(inputEls, submitButton, { inactiveButtonClass }) {
   if (hasInvalidInput(inputEls)) {
@@ -46,7 +36,7 @@ function toggleButtonState(inputEls, submitButton, { inactiveButtonClass }) {
 
 function setEventListeners(formEl, options) {
   const inputSelector = options.inputSelector;
-  const submitButton = formEl.querySelector(".modal__button");
+  const submitButton = formEl.querySelector(options.submitButton);
   const inputEls = [...formEl.querySelectorAll(inputSelector)];
   inputEls.forEach((inputEl) => {
     inputEl.addEventListener("input", (e) => {
@@ -66,7 +56,6 @@ function enableValidation(options) {
   });
 }
 
-//enableValidation(
 const config = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",

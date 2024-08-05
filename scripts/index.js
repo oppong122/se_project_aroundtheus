@@ -45,6 +45,7 @@ const addModalCloseButton = addCardModal.querySelector(".modal__close");
 const cardTitleInput = addCardFormElement.querySelector(
   "#modal-input-type-title"
 );
+const cardFormSubmitButton = addCardModal.querySelector(".modal__button");
 const cardUrlInput = addCardFormElement.querySelector("#modal-input-type-url");
 
 const previewImage = document.querySelector(".modal__image-view");
@@ -87,7 +88,13 @@ function handleAddCardFormSubmit(e) {
   const name = cardTitleInput.value;
   const link = cardUrlInput.value;
   renderCard({ link, name }, cardListEl);
+
   e.target.reset();
+  toggleButtonState(
+    [cardTitleInput, cardUrlInput],
+    cardFormSubmitButton,
+    config
+  );
   closePopup(addCardModal);
 }
 
@@ -135,10 +142,9 @@ function getCardElement(cardData) {
   return cardElement;
 }
 
-//OverLay
 function closeModalOnEscape(event) {
-  const openedPopup = document.querySelector(".modal_open");
   if (event.key === "Escape") {
+    const openedPopup = document.querySelector(".modal_open");
     closePopup(openedPopup);
   }
 }
