@@ -1,3 +1,5 @@
+//import FormValidator from "./FormValidator.js";
+
 function showInputError(formEl, inputEl, options) {
   const errorMessageEl = formEl.querySelector(`#${inputEl.id}-error`);
   errorMessageEl.classList.add(options.errorClass);
