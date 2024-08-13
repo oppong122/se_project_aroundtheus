@@ -115,11 +115,11 @@ function handleAddCardFormSubmit(e) {
   renderCard({ link, name }, cardListEl);
 
   e.target.reset();
-  toggleButtonState(
+  /* toggleButtonState(
     [cardTitleInput, cardUrlInput],
     cardFormSubmitButton,
     config
-  );
+  );*/
   closeModal(addCardModal);
 }
 
