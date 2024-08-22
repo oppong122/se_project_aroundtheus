@@ -1,5 +1,6 @@
 import FormValidator from "./FormValidator.js";
 import Card from "./Card.js";
+import "../pages/index.css";
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -104,8 +105,6 @@ function handleProfileEditSubmit(evt) {
   evt.preventDefault();
   profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
-  //editFormValidator.resetFormValidation();
-  //addCardFormElement.reset();
   closeModal(profileEditModal);
 }
 
@@ -116,7 +115,6 @@ function handleAddCardFormSubmit(e) {
   renderCard({ link, name }, cardListEl);
   e.target.reset();
   addCardValidator.resetFormValidation();
-  //addCardValidator.resetForm();
   closeModal(addCardModal);
 }
 

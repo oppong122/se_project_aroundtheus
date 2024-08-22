@@ -1,22 +1,3 @@
-/*const imagePreviewModal = document.querySelector("#image-preview");
-const previewImage = document.querySelector(".modal__image-view");
-const previewImageCaption = document.querySelector(".modal__image-title");
-
-function closeModalOnEscape(event) {
-  if (event.key === "Escape") {
-    const openedPopup = document.querySelector(".modal_open");
-    closeModal(openedPopup);
-  }
-}
-
-modals.forEach((modal) => {
-  modal.addEventListener("mousedown", (e) => {
-    if (e.target === modal) {
-      closeModal(modal);
-    }
-  });
-});*/
-
 class Card {
   constructor(cardData, cardSelector, handlePreviewImage) {
     this._name = cardData.name;
