@@ -63,16 +63,6 @@ const cardSection = new Section(
 
 cardSection.renderItems();
 
-// function closeModal(modal) {
-//   document.removeEventListener("keydown", closeModalOnEscape);
-//   modal.classList.remove("modal_open");
-// }
-
-// function openModal(modal) {
-//   modal.classList.add("modal_open");
-//   document.addEventListener("keydown", closeModalOnEscape);
-// }
-
 // Creating Instance for the  ModalWithform class
 const addCardPopup = new ModalWithForm(
   "#add-card-modal",
@@ -111,15 +101,13 @@ function handleProfileEditSubmit(values) {
 }
 
 function handleAddCardFormSubmit(cardData) {
-  // const name = cardTitleInput.name;
-  //const name = cardTitleInput.name;
   const name = cardData.name;
   const link = cardData.link;
   renderCard({ link, name });
-  //e.target.reset();
+  addCardFormElement.reset();
   addCardValidator.resetFormValidation();
   addCardPopup.closeModal();
-  console.log(cardData);
+  // console.log(cardData);
 }
 
 function openProfileModal() {
@@ -140,10 +128,7 @@ profileModalCloseButton.addEventListener("click", () =>
 );
 
 addNewCardButton.addEventListener("click", () => {
-  // Anywhere using openModal()
-  // use the Popup instances .open()
   addCardPopup.openModal();
-  //openModal(addCardModal);
 });
 addModalCloseButton.addEventListener("click", () => closeModal(addCardModal));
 //destructured
@@ -153,24 +138,3 @@ function handlePreviewImage(cardData) {
   previewImageCaption.textContent = cardData.name;
   imagePreviewPopup.openModal();
 }
-
-// function closeModalOnEscape(event) {
-//   if (event.key === "Escape") {
-//     const openedPopup = document.querySelector(".modal_open");
-//     closeModal(openedPopup);
-//   }
-// }
-
-// Close button listeners: in Popup
-// modals.forEach((modal) => {
-//   modal.addEventListener("mousedown", (e) => {
-//     if (e.target === modal) {
-//       modal.closeModal();
-//     }
-//   });
-// });
-
-// profileEditFormElement.addEventListener("submit", handleProfileEditSubmit);
-// addCardFormElement.addEventListener("submit", handleAddCardFormSubmit);
-
-// initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
