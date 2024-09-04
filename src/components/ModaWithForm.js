@@ -1,19 +1,42 @@
-import Modal from "./Modal";
+import Modal from "./Modal.js";
+
 class ModalWithForm extends Modal {
   constructor(popupSelector, handleFormSubmit) {
-    super(popupSelector);
+    super({ popupSelector });
+
     this._modalForm = this._modalElement.querySelector(".modal__form");
-    this._handlFormSubmitt = handleFormSubmit;
+    this._handleFormSubmit = handleFormSubmit;
+    this._button = this._modalForm.querySelector(".modal__button");
+    this._inputList = Array.from(
+      this._modalForm.querySelectorAll(".modal__input")
+    );
   }
 
-  _getInputValues() {}
+  _getInputValues() {
+    // const inputList = Array.from(
+    //   this._popupForm.querySelectorAll(".modal__input")
+    // );
+    const inputValues = {};
+    this._inputList.forEach((input) => {
+      inputValues[input.name] = input.value;
+    });
+    return inputValues;
+  }
 
-  setEventListeners() {}
+  setInputValue(inputValues) {
+    inputList.forEach((input) => {
+      input.value = inputValues[input.name];
+    });
+  }
 
-  close() {
-    this._modalForm.reset();
-    super.close();
+  setEventListeners() {
+    super.setEventListeners();
+    this._modalForm.addEventListener("submit", (evt) => {
+      evt.preventDefault();
+      this._handleFormSubmit(this._getInputValues());
+      this._modalForm.reset();
+    });
   }
 }
 
-// Extentiate in index.js
+export default ModalWithForm;
