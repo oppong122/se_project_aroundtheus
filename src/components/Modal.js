@@ -23,7 +23,7 @@ export default class Modal {
     this._modalElement.classList.remove("modal_open");
     document.removeEventListener("keydown", this._handleEscClose);
   }
-
+  // Listens to the escape key
   _handleEscClose = (event) => {
     if (event.key === "Escape") {
       this.closeModal();
@@ -35,8 +35,5 @@ export default class Modal {
     this._modalElement.addEventListener("mousedown", (evt) => {
       this._closeByClick(evt);
     });
-
-    //this._handleEscClose();
-    this.closeModal();
   }
 }

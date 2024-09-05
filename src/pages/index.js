@@ -76,6 +76,7 @@ const profileEditPopup = new ModalWithForm(
 );
 profileEditPopup.setEventListeners();
 
+// Creates an instance of PopupWithImage class and calls its parent's setEventListeners()
 const imagePreviewPopup = new ModalWithImage("#image-preview");
 imagePreviewPopup.setEventListeners();
 
@@ -88,16 +89,18 @@ function createCard(cardData) {
 function renderCard(cardData) {
   const cardElement = createCard(cardData);
   cardSection.addItem(cardElement);
-  //const card = new Card(cardData, cardSelector, handlePreviewImage);
-  //cardListEl.prepend(cardElement);
 }
 
-// Pass the handler to PopupWithForm as an arg
-function handleProfileEditSubmit(values) {
-  profileTitle.textContent = values.profile__title;
-  profileDescription.textContent = values.profile__description;
-  // use the close method
+/// since setUserInfo is expecting an object with name property and description property, use name & description key/value pairs with formData inside {}
+function handleProfileEditSubmit(formData) {
+  profileUserInfo.setUserInfo({
+    name: formData.title,
+    description: formData.description,
+  });
+
   profileEditPopup.closeModal();
+
+  console.log(formData);
 }
 
 function handleAddCardFormSubmit(cardData) {
@@ -111,8 +114,7 @@ function handleAddCardFormSubmit(cardData) {
 }
 
 function openProfileModal() {
-  profileDescriptionInput.value = profileDescription.textContent.trim();
-  profileTitleInput.value = profileTitle.textContent.trim();
+  profileUserInfo.getUserInfo();
   profileEditPopup.openModal();
 }
 
@@ -131,10 +133,7 @@ addNewCardButton.addEventListener("click", () => {
   addCardPopup.openModal();
 });
 addModalCloseButton.addEventListener("click", () => closeModal(addCardModal));
-//destructured
+
 function handlePreviewImage(cardData) {
-  previewImage.src = cardData.link;
-  previewImage.alt = cardData.name;
-  previewImageCaption.textContent = cardData.name;
-  imagePreviewPopup.openModal();
+  imagePreviewPopup.openModal(cardData);
 }

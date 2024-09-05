@@ -6,7 +6,7 @@ class ModalWithForm extends Modal {
 
     this._modalForm = this._modalElement.querySelector(".modal__form");
     this._handleFormSubmit = handleFormSubmit;
-    this._button = this._modalForm.querySelector(".modal__button");
+    //this._button = this._modalForm.querySelector(".modal__button");
     this._inputList = Array.from(
       this._modalForm.querySelectorAll(".modal__input")
     );

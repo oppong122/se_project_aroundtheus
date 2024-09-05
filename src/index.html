@@ -24,13 +24,19 @@
             alt="Avatar"
           />
           <div class="profile__info">
-            <h1 class="profile__title" id="profile-title">Jacques Cousteau</h1>
+            <h1 class="profile__title" id="profile-title" name="name">
+              Jacques Cousteau
+            </h1>
             <button
               class="profile__edit-button"
               id="profile-edit-button"
               type="button"
             ></button>
-            <p class="profile__description" id="profile-description">
+            <p
+              class="profile__description"
+              id="profile-description"
+              name="description"
+            >
               Explorer
             </p>
           </div>
@@ -54,7 +60,7 @@
             <input
               class="modal__input modal__form-title"
               type="text"
-              name="profile__title"
+              name="title"
               id="profile-title-input"
               placeholder="Name"
               required
@@ -67,7 +73,7 @@
             <input
               class="modal__input modal__form-description"
               type="text"
-              name="profile__description"
+              name="description"
               id="profile-description-input"
               placeholder="Description"
               required
