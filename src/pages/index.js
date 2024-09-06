@@ -118,15 +118,23 @@ function openProfileModal() {
   profileEditPopup.openModal();
 }
 
-profileEditButton.addEventListener("click", openProfileModal);
+profileEditButton.addEventListener("click", () => {
+  const userInfoInput = profileUserInfo.getUserInfo();
+  //debugger;
+  profileTitleInput.value = userInfoInput.name;
+  profileDescriptionInput.value = userInfoInput.description;
+  openProfileModal();
+});
 
 // Remove close listeners
-imagePreviewCloseModal.addEventListener("click", () =>
-  imagePreviewPopup.closeModal()
+imagePreviewCloseModal.addEventListener(
+  "click",
+  () => imagePreviewPopup //.closeModal()
 );
 
-profileModalCloseButton.addEventListener("click", () =>
-  profileEditPopup.closeModal()
+profileModalCloseButton.addEventListener(
+  "click",
+  () => profileEditPopup //.closeModal()
 );
 
 addNewCardButton.addEventListener("click", () => {

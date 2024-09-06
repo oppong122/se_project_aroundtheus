@@ -11,8 +11,8 @@ export default class UserInfo {
     };
   }
   // takes new user data and adds it to page. use for submitting profile edit form
-  setUserInfo(UserInfo) {
-    this._nameElement.textContent = UserInfo.name;
-    this._descriptionElement.textContent = UserInfo.description;
+  setUserInfo(userInfo) {
+    this._nameElement.textContent = userInfo.name;
+    this._descriptionElement.textContent = userInfo.description;
   }
 }
