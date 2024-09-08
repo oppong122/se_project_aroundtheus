@@ -99,8 +99,6 @@ function handleProfileEditSubmit(formData) {
   });
 
   profileEditPopup.closeModal();
-
-  console.log(formData);
 }
 
 function handleAddCardFormSubmit(cardData) {
@@ -114,33 +112,32 @@ function handleAddCardFormSubmit(cardData) {
 }
 
 function openProfileModal() {
-  profileUserInfo.getUserInfo();
+  //profileUserInfo.getUserInfo();
   profileEditPopup.openModal();
 }
 
 profileEditButton.addEventListener("click", () => {
   const userInfoInput = profileUserInfo.getUserInfo();
-  //debugger;
-  profileTitleInput.value = userInfoInput.name;
-  profileDescriptionInput.value = userInfoInput.description;
+  profileTitleInput.value = userInfoInput.name.trim();
+  profileDescriptionInput.value = userInfoInput.description.trim();
   openProfileModal();
 });
 
 // Remove close listeners
-imagePreviewCloseModal.addEventListener(
-  "click",
-  () => imagePreviewPopup //.closeModal()
-);
+// imagePreviewCloseModal.addEventListener(
+//   "click",
+//   () => imagePreviewPopup //.closeModal()
+// );
 
-profileModalCloseButton.addEventListener(
-  "click",
-  () => profileEditPopup //.closeModal()
-);
+// profileModalCloseButton.addEventListener(
+//   "click",
+//   () => profileEditPopup //.closeModal()
+// );
 
 addNewCardButton.addEventListener("click", () => {
   addCardPopup.openModal();
 });
-addModalCloseButton.addEventListener("click", () => closeModal(addCardModal));
+//addModalCloseButton.addEventListener("click", () => closeModal(addCardModal));
 
 function handlePreviewImage(cardData) {
   imagePreviewPopup.openModal(cardData);
