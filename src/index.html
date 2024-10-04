@@ -18,11 +18,14 @@
       </header>
       <main class="content">
         <section class="profile">
-          <img
-            src="<%=require('./images/jacques-cousteau-2.jpg')%>"
-            class="profile__image"
-            alt="Avatar"
-          />
+          <div class="profile__avatar">
+            <img
+              src="<%=require('./images/jacques-cousteau-2.jpg')%>"
+              class="profile__avatar-image"
+              alt="Avatar"
+            />
+            <button class="profile__avatar-button"></button>
+          </div>
           <div class="profile__info">
             <h1 class="profile__title" id="profile-title" name="name">
               Jacques Cousteau
@@ -58,7 +61,7 @@
         <form class="modal__form">
           <label class="modal__label">
             <input
-              class="modal__input modal__form-title"
+              class="modal__input"
               type="text"
               name="title"
               id="profile-title-input"
@@ -71,7 +74,7 @@
           </label>
           <label class="modal__label">
             <input
-              class="modal__input modal__form-description"
+              class="modal__input"
               type="text"
               name="description"
               id="profile-description-input"
@@ -103,7 +106,7 @@
         <form class="modal__form">
           <label class="modal__label">
             <input
-              class="modal__input modal__form-title"
+              class="modal__input"
               type="text"
               name="name"
               id="modal-input-type-title"
@@ -116,7 +119,7 @@
           </label>
           <label class="modal__label">
             <input
-              class="modal__input modal__form-description"
+              class="modal__input"
               type="url"
               name="link"
               id="modal-input-type-url"
@@ -132,10 +135,11 @@
       </div>
     </div>
 
+    <!-- Image Preview -->
     <div class="modal modal_image-preview" id="image-preview">
-      <div class="modal__image-content .preview_image-container">
+      <div class="modal__image-content preview_image-container">
         <button
-          class="modal__close .modal_close_image-preview"
+          class="modal__close modal_close_image-preview"
           id="modal-image-close"
         ></button>
         <img class="modal__image-view" src="" alt="" />
@@ -143,6 +147,41 @@
       </div>
     </div>
 
+    <!-- Edit Avatar Modal -->
+    <div class="modal" id="avatar-edit-modal">
+      <div class="modal__container">
+        <button class="modal__close"></button>
+        <p class="modal__heading">Edit Avatar</p>
+        <form class="modal__form">
+          <label class="modal__label">
+            <input
+              class="modal__input"
+              type="url"
+              name="url"
+              placeholder="Url"
+              id="profile-url-input"
+              required
+            />
+            <span class="modal__error" id="profile-url-input-error"></span>
+          </label>
+          <button class="modal__button" type="submit">Save</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Delete Confirmation modal -->
+
+    <div class="modal" id="modal__delete-confirm">
+      <div class="modal__container">
+        <button class="modal__close"></button>
+        <p class="modal__heading">Are you sure?</p>
+        <form class="modal__form">
+          <button class="modal__button" type="submit">Yes</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Template -->
     <template id="card-template">
       <li class="card">
         <button class="card__delete-button"></button>
