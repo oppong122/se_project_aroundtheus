@@ -124,6 +124,7 @@ function createCard(cardData) {
     cardSelector,
     handleConfirmDelete,
     handlePreviewImage
+    // handleLikeButton(card, card.id, isLiked)
   );
   return card.getView();
 }
@@ -166,11 +167,11 @@ function handleAddCardFormSubmit(cardData) {
     });
 }
 
+// Handling the Avatar update
 function handleAvatarSubmission({ url }) {
   api.updateAvatar(url).then((res) => {
-    // debugger;
     profileUserInfo.setAvatar(res);
-    // call the setUserInfo method
+    avatarPopup.closeModal();
   });
 }
 
@@ -193,6 +194,9 @@ profileEditButton.addEventListener("click", () => {
 addNewCardButton.addEventListener("click", () => {
   addCardPopup.openModal();
 });
+
+// handling the Card Like button
+// function handleLikeButton() {}
 //addModalCloseButton.addEventListener("click", () => closeModal(addCardModal));
 
 function handleConfirmDelete(card) {

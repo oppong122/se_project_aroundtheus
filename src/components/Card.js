@@ -6,7 +6,24 @@ class Card {
     this._cardSelector = cardSelector;
     this._handleConfirmDelete = handleConfirmDelete;
     this.id = cardData._id;
+    this._isLiked = cardData.isLiked;
   }
+
+  // _updateLikeStatus() {
+  //   const likeButton = this._cardElement.querySelector(".card__like-button");
+
+  //   if (this._isLiked) {
+  //     likeButton.classList.add("card__like-button_active");
+  //   } else {
+  //     likeButton.classList.remove("card__like-button_active");
+  //   }
+  // }
+
+  // `updateLikes() {
+  //   this._likeButton = this._cardElement.querySelector(".card__like-button");
+  //   this._handleLikeIcon();
+  //   // this._likeButton.classList.toggle("card__like-button_active");
+  // }`
 
   _getTemplate() {
     return document
@@ -27,7 +44,9 @@ class Card {
     this._cardImageEl.addEventListener("click", () => {
       this._handlePreviewImage({ link: this._link, name: this._name });
     });
-    this._likeButton.addEventListener("click", () => this._handleLikeIcon());
+    this._likeButton.addEventListener("click", () =>
+      this._handleLikeIcon(this, this._id, this._isLiked)
+    );
     this._deleteButton.addEventListener("click", () =>
       this._handleConfirmDelete(this)
     );
