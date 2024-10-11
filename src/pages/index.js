@@ -103,9 +103,6 @@ const profileEditPopup = new ModalWithForm(
 profileEditPopup.setEventListeners();
 
 // Instance for the Deleting__card
-// const modalConfirmDelete = new ModalDeleteConfirm("#modal__delete-confirm");
-// modalConfirmDelete.setEventListeners();
-
 const modalDeletImage = new ModalDeleteConfirm(
   "#modal__delete-confirm",
   handleConfirmDelete
@@ -123,8 +120,8 @@ function createCard(cardData) {
     cardData,
     cardSelector,
     handleConfirmDelete,
-    handlePreviewImage
-    // handleLikeButton(card, card.id, isLiked)
+    handlePreviewImage,
+    handCardleLiked
   );
   return card.getView();
 }
@@ -135,7 +132,7 @@ function renderCard(cardData) {
   cardSection.addItem(cardElement);
 }
 
-/// since setUserInfo is expecting an object with name property and description property, use name & description key/value pairs with formData inside {}
+// handling User information(UserIfo)
 function handleProfileEditSubmit(formData) {
   profileUserInfo.setUserInfo({
     name: formData.title,
@@ -148,6 +145,7 @@ function handleProfileEditSubmit(formData) {
   });
 }
 
+// Adding card handler
 function handleAddCardFormSubmit(cardData) {
   const name = cardData.name;
   const link = cardData.link;
@@ -175,11 +173,12 @@ function handleAvatarSubmission({ url }) {
   });
 }
 
+// Opening Userinfor Modal
 function openProfileModal() {
-  //profileUserInfo.getUserInfo();
   profileEditPopup.openModal();
 }
 
+// Adding an evenlistener to open the Avatar Modal(profile image)
 profileAvatar.addEventListener("click", () => {
   avatarPopup.openModal();
 });
@@ -191,24 +190,40 @@ profileEditButton.addEventListener("click", () => {
   openProfileModal();
 });
 
+// Opening the addCardModal to add a new card
 addNewCardButton.addEventListener("click", () => {
   addCardPopup.openModal();
 });
 
 // handling the Card Like button
-// function handleLikeButton() {}
-//addModalCloseButton.addEventListener("click", () => closeModal(addCardModal));
+function handCardleLiked(card) {
+  if (card.isLiked()) {
+    api
+      .dislikeCard(card.id)
+      .then(() => {
+        card.handleLikeIcon();
+      })
+      .catch((err) => console.log("Error unliking card:", err));
+  } else {
+    api
+      .cardLiked(card.id)
+      .then(() => {
+        card.handleLikeIcon();
+      })
+      .catch((err) => console.log("Error liking card:", err));
+  }
+}
 
+//handling Delet confirmation which confirms to Deletes the Cards permanently from the browser
 function handleConfirmDelete(card) {
-  // console.log("delete");
   modalDeletImage.openModal(card);
   modalDeletImage.setSubmitAction(() => {
     api.deleteCard(card.id).then(() => {
       card.deleteCard();
+      modalDeletImage.closeModal();
     });
   });
 }
 
-function handlePreviewImage(cardData) {
-  // imagePreviewPopup.openModal(cardData);
-}
+// question about this function?(why is it an empty function with and undifined parameter but causes error when deleted)
+function handlePreviewImage(cardData) {}

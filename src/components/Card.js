@@ -1,7 +1,14 @@
 class Card {
-  constructor(cardData, cardSelector, handleConfirmDelete, handlePreviewImage) {
+  constructor(
+    cardData,
+    cardSelector,
+    handleConfirmDelete,
+    handlePreviewImage,
+    handleCardLiked
+  ) {
     this._name = cardData.name;
     this._link = cardData.link;
+    this._handleCardLiked = handleCardLiked;
     this._handlePreviewImage = handlePreviewImage;
     this._cardSelector = cardSelector;
     this._handleConfirmDelete = handleConfirmDelete;
@@ -9,21 +16,17 @@ class Card {
     this._isLiked = cardData.isLiked;
   }
 
-  // _updateLikeStatus() {
-  //   const likeButton = this._cardElement.querySelector(".card__like-button");
+  _updateLikeStatus() {
+    if (this._isLiked) {
+      this._likeButton.classList.add("card__like-button_active");
+    } else {
+      this._likeButton.classList.remove("card__like-button_active");
+    }
+  }
 
-  //   if (this._isLiked) {
-  //     likeButton.classList.add("card__like-button_active");
-  //   } else {
-  //     likeButton.classList.remove("card__like-button_active");
-  //   }
-  // }
-
-  // `updateLikes() {
-  //   this._likeButton = this._cardElement.querySelector(".card__like-button");
-  //   this._handleLikeIcon();
-  //   // this._likeButton.classList.toggle("card__like-button_active");
-  // }`
+  isLiked() {
+    return this._isLiked;
+  }
 
   _getTemplate() {
     return document
@@ -32,7 +35,7 @@ class Card {
       .cloneNode(true);
   }
 
-  _handleLikeIcon() {
+  handleLikeIcon() {
     this._likeButton.classList.toggle("card__like-button_active");
   }
 
@@ -45,7 +48,7 @@ class Card {
       this._handlePreviewImage({ link: this._link, name: this._name });
     });
     this._likeButton.addEventListener("click", () =>
-      this._handleLikeIcon(this, this._id, this._isLiked)
+      this._handleCardLiked(this)
     );
     this._deleteButton.addEventListener("click", () =>
       this._handleConfirmDelete(this)
@@ -63,9 +66,11 @@ class Card {
     this._cardTitleEl.textContent = this._name;
 
     this._likeButton = this._cardElement.querySelector(".card__like-button");
+
     this._deleteButton = this._cardElement.querySelector(
       ".card__delete-button"
     );
+    this._updateLikeStatus();
 
     this._setEventListeners();
     return this._cardElement;

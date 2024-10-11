@@ -73,7 +73,7 @@ class Api {
     });
   }
 
-  cardLikeButton(id) {
+  cardLiked(id) {
     return fetch(`${this._baseUrl}/cards/${id}/likes`, {
       headers: this._headers,
       method: "PUT",
