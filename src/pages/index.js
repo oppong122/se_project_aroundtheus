@@ -59,27 +59,40 @@ const profileUserInfo = new UserInfo(
   ".profile__avatar-image"
 );
 
-api.getUserInfoApi().then((res) => {
-  console.log("page load", res);
-  console.log(profileUserInfo);
-  // use setUSerInfo instead
-  profileUserInfo.setUserInfo(res);
-});
+api
+  .getUserInfoApi()
+  .then((res) => {
+    console.log("page load", res);
+    console.log(profileUserInfo);
+    profileUserInfo.setAvatar(res);
+    // use setUSerInfo instead
+    profileUserInfo.setUserInfo(res);
+  })
+  .catch((err) => {
+    console.error(err);
+    alert("Error adding card!!");
+  });
 
 let cardSection;
 
 //Instantiating the Section Class (API's)
-api.getInitialCard().then((initialCards) => {
-  cardSection = new Section(
-    {
-      items: initialCards,
-      renderer: renderCard,
-    },
-    ".cards__list"
-  );
-
-  cardSection.renderItems();
-});
+api
+  .getInitialCard()
+  .then((initialCards) => {
+    cardSection = new Section(
+      {
+        items: initialCards,
+        renderer: renderCard,
+      },
+      ".cards__list"
+    );
+    // preventDefault();
+    cardSection.renderItems();
+  })
+  .catch((err) => {
+    console.error(err);
+    alert("Error adding card!!");
+  });
 
 // Creating Instance for the  ModalWithform class (Adding cards API)
 
@@ -134,22 +147,31 @@ function renderCard(cardData) {
 
 // handling User information(UserIfo)
 function handleProfileEditSubmit(formData) {
-  profileUserInfo.setUserInfo({
-    name: formData.title,
-    about: formData.description,
-  });
-
-  api.editUserInfo(formData.title, formData.description).then((res) => {
-    console.log(res);
-    profileEditPopup.closeModal();
-  });
+  profileEditPopup.isButtonLoading(true);
+  api
+    .editUserInfo(formData.title, formData.description)
+    .then((res) => {
+      console.log(res);
+      profileUserInfo.setUserInfo({
+        name: formData.title,
+        about: formData.description,
+      });
+      profileEditPopup.closeModal();
+    })
+    .catch((err) => {
+      console.error(err);
+      alert("Error adding card!!");
+    })
+    .finally(() => {
+      profileEditPopup.isButtonLoading(false);
+    });
 }
 
 // Adding card handler
 function handleAddCardFormSubmit(cardData) {
   const name = cardData.name;
   const link = cardData.link;
-
+  addCardPopup.isButtonLoading(true);
   // Adding API to add new cards;
   api
     .addCardApi(name, link)
@@ -162,15 +184,24 @@ function handleAddCardFormSubmit(cardData) {
     .catch((err) => {
       console.error(err);
       alert("Error adding card!!");
+    })
+    .finally(() => {
+      addCardPopup.isButtonLoading(false);
     });
 }
 
 // Handling the Avatar update
 function handleAvatarSubmission({ url }) {
-  api.updateAvatar(url).then((res) => {
-    profileUserInfo.setAvatar(res);
-    avatarPopup.closeModal();
-  });
+  api
+    .updateAvatar(url)
+    .then((res) => {
+      profileUserInfo.setAvatar(res);
+      avatarPopup.closeModal();
+    })
+    .catch((err) => {
+      console.error(err);
+      alert("Error adding card!!");
+    });
 }
 
 // Opening Userinfor Modal
@@ -218,12 +249,20 @@ function handCardleLiked(card) {
 function handleConfirmDelete(card) {
   modalDeletImage.openModal(card);
   modalDeletImage.setSubmitAction(() => {
-    api.deleteCard(card.id).then(() => {
-      card.deleteCard();
-      modalDeletImage.closeModal();
-    });
+    api
+      .deleteCard(card.id)
+      .then(() => {
+        card.deleteCard();
+        modalDeletImage.closeModal();
+      })
+      .catch((err) => {
+        console.error(err);
+        alert("Error adding card!!");
+      });
   });
 }
 
 // question about this function?(why is it an empty function with and undifined parameter but causes error when deleted)
-function handlePreviewImage(cardData) {}
+function handlePreviewImage(cardData) {
+  imagePreviewPopup.openModal(cardData);
+}

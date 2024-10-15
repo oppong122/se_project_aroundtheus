@@ -19,6 +19,6 @@ export default class UserInfo {
   }
 
   setAvatar(userInfo) {
-    this._avatarElement.src = userInfo.avatar;
+    this._avatarElement.src = userInfo.avatar; // {avatar: "http:saldjf"}
   }
 }

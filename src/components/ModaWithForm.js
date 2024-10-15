@@ -6,10 +6,21 @@ class ModalWithForm extends Modal {
 
     this._modalForm = this._modalElement.querySelector(".modal__form");
     this._handleFormSubmit = handleFormSubmit;
-    //this._button = this._modalForm.querySelector(".modal__button");
+    this._button = this._modalForm.querySelector(".modal__button");
+    this._buttonText = this._button.textContent;
     this._inputList = Array.from(
       this._modalForm.querySelectorAll(".modal__input")
     );
+    // query select for the submit button
+  }
+
+  //creating a method that changes that text content of the submit button
+  isButtonLoading(isLoading) {
+    if (isLoading) {
+      this._button.textContent = "Saving...";
+    } else {
+      this._button.textContent = this._buttonText;
+    }
   }
 
   _getInputValues() {
