@@ -19,7 +19,11 @@
       <main class="content">
         <section class="profile">
           <div class="profile__avatar">
-            <img src="" class="profile__avatar-image" alt="Avatar" />
+            <img
+              src="<%=require('./images/black-background.svg')%>"
+              class="profile__avatar-image"
+              alt="Avatar"
+            />
             <button class="profile__avatar-button"></button>
           </div>
           <div class="profile__info">
@@ -148,7 +152,7 @@
       <div class="modal__container">
         <button class="modal__close"></button>
         <p class="modal__heading">Edit Avatar</p>
-        <form class="modal__form">
+        <form class="modal__form" id="avatar__form">
           <label class="modal__label">
             <input
               class="modal__input"

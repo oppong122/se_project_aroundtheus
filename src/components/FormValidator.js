@@ -42,6 +42,7 @@ class FormValidator {
   }
 
   resetFormValidation() {
+    this._form.reset();
     this._toggleButtonState();
     this._inputEls.forEach((inputEl) => {
       this._hideInputError(inputEl);
@@ -65,7 +66,6 @@ class FormValidator {
     this._form.addEventListener("submit", (e) => {
       e.preventDefault();
     });
-
     this._setEventListeners();
   }
 }

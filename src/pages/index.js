@@ -11,6 +11,7 @@ import {
   modals,
   imagePreviewModal,
   addCardModal,
+  profileAvatarFormEl,
   profileEditButton,
   profileEditModal,
   addNewCardButton,
@@ -49,8 +50,15 @@ const addCardValidator = new FormValidator(
   addCardFormElement
 );
 
+const avatarFormValidator = new FormValidator(
+  ValidationConfig,
+  profileAvatarFormEl
+);
+
+avatarFormValidator.enableValidation();
 editFormValidator.enableValidation();
 addCardValidator.enableValidation();
+// console.log(avatarFormValidator);
 
 //Instantiating the UserInfo Class
 const profileUserInfo = new UserInfo(
@@ -177,7 +185,6 @@ function handleAddCardFormSubmit(cardData) {
     .addCardApi(name, link)
     .then((res) => {
       renderCard(res);
-      addCardFormElement.reset();
       addCardValidator.resetFormValidation();
       addCardPopup.closeModal();
     })
@@ -192,15 +199,21 @@ function handleAddCardFormSubmit(cardData) {
 
 // Handling the Avatar update
 function handleAvatarSubmission({ url }) {
+  avatarPopup.isButtonLoading(true);
   api
     .updateAvatar(url)
     .then((res) => {
       profileUserInfo.setAvatar(res);
+      avatarFormValidator.resetFormValidation();
       avatarPopup.closeModal();
+      //empty the inputs and disable the button
     })
     .catch((err) => {
       console.error(err);
       alert("Error adding card!!");
+    })
+    .finally(() => {
+      avatarPopup.isButtonLoading(false);
     });
 }
 

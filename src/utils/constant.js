@@ -10,6 +10,8 @@ export const imagePreviewCloseModal =
   imagePreviewModal.querySelector(".modal__close");
 export const profileEditFormElement =
   profileEditModal.querySelector(".modal__form");
+export const profileAvatarFormEl =
+  avatarEditModal.querySelector("#avatar__form");
 export const addCardFormElement = addCardModal.querySelector(".modal__form");
 export const profileModalCloseButton =
   profileEditModal.querySelector(".modal__close");
