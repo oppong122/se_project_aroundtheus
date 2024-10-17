@@ -3,6 +3,7 @@ import Modal from "./Modal.js";
 class ModalWithImage extends Modal {
   constructor(popupSelector) {
     super({ popupSelector });
+    //this._deletConfirm = handleConfirmDelete;
   }
 
   openModal({ link, name }) {

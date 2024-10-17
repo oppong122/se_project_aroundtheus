@@ -1,7 +1,9 @@
 export default class UserInfo {
-  constructor(nameSelector, descriptionSelector) {
+  constructor(nameSelector, descriptionSelector, avatarSelector) {
+    // select the avatar image element avatarSelector
     this._nameElement = document.querySelector(nameSelector);
     this._descriptionElement = document.querySelector(descriptionSelector);
+    this._avatarElement = document.querySelector(avatarSelector);
   }
   // returns object containing user info. use for displaying user data in profile edit modal
   getUserInfo() {
@@ -10,9 +12,13 @@ export default class UserInfo {
       description: this._descriptionElement.textContent,
     };
   }
-  // takes new user data and adds it to page. use for submitting profile edit form
+
   setUserInfo(userInfo) {
     this._nameElement.textContent = userInfo.name;
-    this._descriptionElement.textContent = userInfo.description;
+    this._descriptionElement.textContent = userInfo.about;
+  }
+
+  setAvatar(userInfo) {
+    this._avatarElement.src = userInfo.avatar; // {avatar: "http:saldjf"}
   }
 }

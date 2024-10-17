@@ -77,18 +77,46 @@
   margin-bottom: 0;
 }
 
-.profile__image {
+.profile__avatar {
+  position: relative;
   width: 120px;
   height: 120px;
   border-radius: 50%;
+  margin-right: 24px;
+  overflow: hidden;
+}
+
+.profile__avatar-button {
+  cursor: pointer;
+  position: absolute;
+  border: none;
+  background: transparent;
+  background-color: rgba(0, 0, 0, 0.8);
+  background-image: url(../images/avatar-edit.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  opacity: 0;
+  transition: 0.2s ease-in-out;
+}
+
+.profile__avatar:hover .profile__avatar-button {
+  opacity: 1;
+}
+
+.profile__avatar-image {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   background-position: center;
-  margin-right: 24px;
 }
 
 @media screen and (max-width: 775px) {
   .profile {
-    max-width: 599px;
+    /* max-width: 599px; */
     display: flex;
     margin: 40px auto;
   }
